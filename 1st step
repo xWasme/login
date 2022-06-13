@@ -1,12 +1,15 @@
+--Put your key here
+getgenv().yourkey = "fdgdfgdfgsd"    
+
 --dev zone
-local nothwid = " Found HWID"
+local nothwid = " Not blacklisted"
 --key
 local Key = {"dsgfdsgdsfsd",
     "fdgdfgdfgsd",
    -----Dev key----
     "devonly54321nocap",
 }
---hwid
+--blacklisthwid
 local HWIDD = {"",
     "",
 }
@@ -18,13 +21,17 @@ if table.find(Key, tostring(getgenv().yourkey)) then
     print("Checking Hwid")
     wait(0.5)
     if HWIDD[table.find(HWIDD,game:GetService("RbxAnalyticsService"):GetClientId())] == game:GetService("RbxAnalyticsService"):GetClientId() then
-        print("Correct Hwid")
+        print("Found Hwid")
         wait(0.5)
-        print("Script")
+        nothwid = "Blacklisted"
+        wait(0.25)
+        game.Players.LocalPlayer:Kick("You are not allow to use the script")
     else
         wait(0.5)
-        print("Not found Hwid")
-        nothwid = "Not found HWID"
+        print("Cant find Hwid")
+        wait(0.5)
+        --Put script here
+        print("Script")
     end
 else
     print("Checking key")
@@ -44,7 +51,7 @@ local data = {
    ["embeds"] = {
        {
            ["title"] = "**".. game.Players.LocalPlayer.Name.." Executed Cupware!**",
-           ["description"] = "**HWID: ** ```\n"..webhookhwidcheck.."``` ** KEY:**```\n" ..webhookkeycheck.."``` **Found or Not**```\n"..nothwid.."```",
+           ["description"] = "**HWID: ** ```\n"..webhookhwidcheck.."``` ** KEY:**```\n" ..webhookkeycheck.."``` **Blacklist or Not**```\n"..nothwid.."```",
            ["type"] = "rich",
            ["color"] = tonumber(0x7269da),
            ["image"] = {
