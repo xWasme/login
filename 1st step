@@ -1,0 +1,65 @@
+--dev zone
+local nothwid = " Found HWID"
+--key
+local Key = {"dsgfdsgdsfsd",
+    "fdgdfgdfgsd",
+   -----Dev key----
+    "devonly54321nocap",
+}
+--hwid
+local HWIDD = {"",
+    "",
+}
+if table.find(Key, tostring(getgenv().yourkey)) then
+    print("Checking key")
+    wait(0.5)
+    print("Correct key")
+    wait(0.5)
+    print("Checking Hwid")
+    wait(0.5)
+    if HWIDD[table.find(HWIDD,game:GetService("RbxAnalyticsService"):GetClientId())] == game:GetService("RbxAnalyticsService"):GetClientId() then
+        print("Correct Hwid")
+        wait(0.5)
+        print("Script")
+    else
+        wait(0.5)
+        print("Not found Hwid")
+        nothwid = "Not found HWID"
+    end
+else
+    print("Checking key")
+    wait(0.5)
+    print("Wrong key")
+end
+--Webhook
+
+if table.find(Key, tostring(getgenv().yourkey)) then
+local webhookhwidcheck = (game:GetService("RbxAnalyticsService"):GetClientId())
+local webhookkeycheck = getgenv().yourkey
+
+local url =
+   "https://discord.com/api/webhooks/985771611066077225/RJEjNLrtJbxTX3VNCL79KwN1cEZjmNurIJMnlIwG7O8Pzos-lxGm8iDXhOBJ2xEkKq2G"
+local data = {
+   ["content"] = "",
+   ["embeds"] = {
+       {
+           ["title"] = "**".. game.Players.LocalPlayer.Name.." Executed Cupware!**",
+           ["description"] = "**HWID: ** ```\n"..webhookhwidcheck.."``` ** KEY:**```\n" ..webhookkeycheck.."``` **Found or Not**```\n"..nothwid.."```",
+           ["type"] = "rich",
+           ["color"] = tonumber(0x7269da),
+           ["image"] = {
+               ["url"] = "http://www.roblox.com/Thumbs/Avatar.ashx?x=150&y=150&Format=Png&username=" ..
+                   tostring(game:GetService("Players").LocalPlayer.Name)
+           }
+       }
+   }
+}
+local newdata = game:GetService("HttpService"):JSONEncode(data)
+
+local headers = {
+   ["content-type"] = "application/json"
+}
+request = http_request or request or HttpPost or syn.request
+local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
+request(abcdef)
+end
