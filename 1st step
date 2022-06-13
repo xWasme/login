@@ -4,16 +4,15 @@ if game.PlaceId == 7622046644 then
   yourkey = "Monster Ghoul" 
 end
 --blacklistHWID
-local HWIDD = {"",
+local HWIDD = {"2CEC486B-D3DC-4A0F-AFB3-424512F28E12",
     "",
 }
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 --check game
   function Gamescript()
-      --put script here
     loadstring(game:HttpGet("https://raw.githubusercontent.com/twotro/CupWare/main/"..game.PlaceId..".lua"))();
    end
---dev zone
+--blacklist or not
 local nothwid = " Not blacklisted"
 if HWIDD[table.find(HWIDD,game:GetService("RbxAnalyticsService"):GetClientId())] == game:GetService("RbxAnalyticsService"):GetClientId() then
     nothwid = "Blacklisted"
@@ -55,8 +54,6 @@ if HWIDD[table.find(HWIDD,game:GetService("RbxAnalyticsService"):GetClientId())]
         print("Checking Status")
         wait(0.25)
         print("Done")
-        wait(0.25)
-        nothwid = "Blacklisted"
         wait(0.25)
         game.Players.LocalPlayer:Kick("You are not allow to use the script [Blacklisted]")
     else
