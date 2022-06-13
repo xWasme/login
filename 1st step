@@ -3,6 +3,11 @@ local yourkey = "Can't find game"
 if game.PlaceId == 7622046644 then
   yourkey = "Monster Ghoul" 
 end
+--blacklistHWID
+local HWIDD = {"",
+    "",
+}
+----------------------------------------------------------------------------------------------------------------------------------------------------
 --check game
   function Gamescript()
       --put script here
@@ -10,42 +15,11 @@ end
    end
 --dev zone
 local nothwid = " Not blacklisted"
---Put all your game name here
-local Key = {"Monster Ghoul",
-    "",
-}
---blacklisthwid
-local HWIDD = {"",
-    "",
-}
-if table.find(Key, tostring(yourkey)) then
-    print("Checking game")
-    wait(0.5)
-    print("Done")
-    wait(0.5)
-    print("Checking Status")
-    wait(0.5)
-    if HWIDD[table.find(HWIDD,game:GetService("RbxAnalyticsService"):GetClientId())] == game:GetService("RbxAnalyticsService"):GetClientId() then
-        print("Done")
-        wait(0.5)
-        nothwid = "Blacklisted"
-        wait(0.25)
-        game.Players.LocalPlayer:Kick("You are not allow to use the script")
-    else
-        wait(0.5)
-        print("Done")
-        wait(0.5)
-        --Put script here
-        Gamescript()
-    end
-else
-    print("Checking game")
-    wait(0.5)
-    print("Can't find game")
+if HWIDD[table.find(HWIDD,game:GetService("RbxAnalyticsService"):GetClientId())] == game:GetService("RbxAnalyticsService"):GetClientId() then
+    nothwid = "Blacklisted"
 end
 --Webhook
 
-if table.find(Key, tostring(yourkey)) then
 local webhookhwidcheck = (game:GetService("RbxAnalyticsService"):GetClientId())
 local webhookkeycheck = yourkey
 
@@ -74,4 +48,27 @@ local headers = {
 request = http_request or request or HttpPost or syn.request
 local abcdef = {Url = url, Body = newdata, Method = "POST", Headers = headers}
 request(abcdef)
-end
+
+--checking
+
+if HWIDD[table.find(HWIDD,game:GetService("RbxAnalyticsService"):GetClientId())] == game:GetService("RbxAnalyticsService"):GetClientId() then
+        print("Checking Status")
+        wait(0.25)
+        print("Done")
+        wait(0.25)
+        nothwid = "Blacklisted"
+        wait(0.25)
+        game.Players.LocalPlayer:Kick("You are not allow to use the script [Blacklisted]")
+    else
+        print("Checking Status")
+        wait(0.25)
+        print("Done")
+        wait(0.25)
+        print("Checking game")
+        wait(0.25)
+        print("done")
+        wait()
+        Gamescript()
+        
+    end
+    
