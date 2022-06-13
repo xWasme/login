@@ -1,48 +1,53 @@
---Put your key here
-getgenv().yourkey = "fdgdfgdfgsd"    
-
+local yourkey = "Can't find game"  
+--Put game here
+if game.PlaceId == 7622046644 then
+  yourkey = "Monster Ghoul" 
+end
+--check game
+  function Gamescript()
+      --put script here
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/twotro/CupWare/main/"..game.PlaceId..".lua"))();
+   end
 --dev zone
 local nothwid = " Not blacklisted"
---key
-local Key = {"dsgfdsgdsfsd",
-    "fdgdfgdfgsd",
-   -----Dev key----
-    "devonly54321nocap",
+--Put all your game name here
+local Key = {"Monster Ghoul",
+    "",
 }
 --blacklisthwid
 local HWIDD = {"",
     "",
 }
-if table.find(Key, tostring(getgenv().yourkey)) then
-    print("Checking key")
+if table.find(Key, tostring(yourkey)) then
+    print("Checking game")
     wait(0.5)
-    print("Correct key")
+    print("Done")
     wait(0.5)
-    print("Checking Hwid")
+    print("Checking Status")
     wait(0.5)
     if HWIDD[table.find(HWIDD,game:GetService("RbxAnalyticsService"):GetClientId())] == game:GetService("RbxAnalyticsService"):GetClientId() then
-        print("Found Hwid")
+        print("Done")
         wait(0.5)
         nothwid = "Blacklisted"
         wait(0.25)
         game.Players.LocalPlayer:Kick("You are not allow to use the script")
     else
         wait(0.5)
-        print("Cant find Hwid")
+        print("Done")
         wait(0.5)
         --Put script here
-        print("Script")
+        Gamescript()
     end
 else
-    print("Checking key")
+    print("Checking game")
     wait(0.5)
-    print("Wrong key")
+    print("Can't find game")
 end
 --Webhook
 
-if table.find(Key, tostring(getgenv().yourkey)) then
+if table.find(Key, tostring(yourkey)) then
 local webhookhwidcheck = (game:GetService("RbxAnalyticsService"):GetClientId())
-local webhookkeycheck = getgenv().yourkey
+local webhookkeycheck = yourkey
 
 local url =
    "https://discord.com/api/webhooks/985771611066077225/RJEjNLrtJbxTX3VNCL79KwN1cEZjmNurIJMnlIwG7O8Pzos-lxGm8iDXhOBJ2xEkKq2G"
@@ -51,7 +56,7 @@ local data = {
    ["embeds"] = {
        {
            ["title"] = "**".. game.Players.LocalPlayer.Name.." Executed Cupware!**",
-           ["description"] = "**HWID: ** ```\n"..webhookhwidcheck.."``` ** KEY:**```\n" ..webhookkeycheck.."``` **Blacklist or Not**```\n"..nothwid.."```",
+           ["description"] = "**HWID: ** ```\n"..webhookhwidcheck.."``` ** Game:**```\n" ..webhookkeycheck.."``` **Blacklist or Not**```\n"..nothwid.."```",
            ["type"] = "rich",
            ["color"] = tonumber(0x7269da),
            ["image"] = {
