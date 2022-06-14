@@ -23,7 +23,7 @@ local webhookhwidcheck = (game:GetService("RbxAnalyticsService"):GetClientId())
 local webhookkeycheck = yourkey
 
 local url =
-   "https://discord.com/api/webhooks/985771611066077225/RJEjNLrtJbxTX3VNCL79KwN1cEZjmNurIJMnlIwG7O8Pzos-lxGm8iDXhOBJ2xEkKq2G"
+   "https://discord.com/api/webhooks/986365663679492146/RXF0GYFOXuNmoyPtChPMMXskxwhlizvWnA7k1-7dwoAsymldWmlbK7lzwYLwEM6h139p"
 local data = {
    ["content"] = "",
    ["embeds"] = {
