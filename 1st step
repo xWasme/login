@@ -10,7 +10,7 @@ local HWIDD = {"",
 ----------------------------------------------------------------------------------------------------------------------------------------------------
 --check game
   function Gamescript()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/twotro/CupWare/main/"..game.PlaceId..".lua"))();
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xWasme/main/main/"..game.PlaceId..""))();    
    end
 --blacklist or not
 local nothwid = " Not blacklisted"
