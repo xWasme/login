@@ -2,16 +2,15 @@ local yourkey = "Can't find game"
 --Put game here
 if game.PlaceId == 7622046644 then
   yourkey = "Monster Ghoul" 
+    function Gamescript()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/xWasme/main/main/7622046644"))();    
+   end
 end
 --blacklistHWID
 local HWIDD = {"",
     "",
 }
 ----------------------------------------------------------------------------------------------------------------------------------------------------
---check game
-  function Gamescript()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/xWasme/main/main/"..game.PlaceId..""))();    
-   end
 --blacklist or not
 local nothwid = " Not blacklisted"
 if HWIDD[table.find(HWIDD,game:GetService("RbxAnalyticsService"):GetClientId())] == game:GetService("RbxAnalyticsService"):GetClientId() then
